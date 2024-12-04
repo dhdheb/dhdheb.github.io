@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>웹사이트 타이틀</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script type="text/javascript">
+        window.onload = function() {
+            var visitTime = (new Date()).getTime();
+
+            var isAndroid = /android/i.test(navigator.userAgent);
+            var isIOS = /iPad|iPhone|iPod/.test(navigator.userAgent) && !window.MSStream;
+            if (isAndroid) {
+                location.href = "https://play.google.com/store/apps/details?id=com.example.applink";
+            } else if (isIOS) {
+                location.href = "https://apps.apple.com/app/id0000000000";
+            }
+        }
+    </script>
+</head>
+<body>
+    <h1>AppLink 테스트</h1>
+    <p>이 웹사이트는 사용자의 기기에 따라 앱 스토어 또는 플레이 스토어로 리디렉션하는 예제입니다.</p>
+</body>
+</html>
