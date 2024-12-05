@@ -17,13 +17,11 @@
                 // 앱 실행 시도
                 location.href = appLink;
 
-                // 1500ms 이후 앱 실행이 실패한 경우 스토어로 리디렉션
+                // 1500ms 이후 앱 실행이 실패한 경우
                 setTimeout(function() {
-                    if (isAndroid) {
-                        location.href = androidStoreLink;
-                    } else if (isIOS) {
-                        location.href = iosStoreLink;
-                    }
+                    // 앱 실행 실패 시 메시지와 버튼 표시
+                    document.getElementById("message").style.display = "block";
+                    document.getElementById("openInBrowser").style.display = "inline-block";
                 }, 1500);
             }
 
@@ -35,9 +33,14 @@
     </script>
 </head>
 <body>
-    <h1>AppLink 테스트</h1>
-    <p>앱이 설치된 경우 실행되고, 없으면 스토어로 이동합니다.</p>
-    <button id="openInBrowser" style="margin-top: 20px; padding: 10px 20px; font-size: 16px;">
+    <h1>AppLink</h1>
+<!-- 앱 실행 실패 시 보여줄 메시지 -->
+    <p id="message" style="display: none; color: red;">
+        앱 실행이 안되시나요? <br> "브라우저에서 열기" 버튼을 클릭해 주세요.
+    </p>
+
+<!-- 브라우저에서 열기 버튼 -->
+    <button id="openInBrowser" style="display: none; margin-top: 20px; padding: 10px 20px; font-size: 16px;">
         브라우저에서 열기
     </button>
 </body>
